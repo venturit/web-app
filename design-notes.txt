@@ -1,0 +1,77 @@
+User
+has_many :projects
+has_many :collaborations 
+name
+email
+bio
+
+
+
+
+Project
+belongs_to :lead, :class => :user
+has_many :data
+has_many :collaborators, :class => :user
+
+name
+description 
+image
+location
+restrict_area_to
+longitude
+latitude 
+start_at
+end_at
+collection_start_at
+collection_end_at
+protocol
+disclaimer
+views
+downloads
+
+rails g scaffold Project name:string description:text disclaimer:text views:integer downloads:integer
+
+
+ProjectData
+belongs_to :project
+belongs_to :user 
+user_id
+project_id
+photosynthetic_efficiency
+relative_chlorophyll_content
+temperature
+relative_humidity
+co2_content
+longitude 
+latitude
+raw
+subject
+
+
+
+
+{"subject": "apple", "raw":
+[337,336,348,351,348,363,370,363,362,363,357,369,373,368,382,389,365,365,361,387,361,379,383,366,374,464,496,523,535,544,542,545,544,538,549,554,567,557,563,567,566,579,561,573,557,558,576,572,565,574,566,517,518,515,509,497,492,472,492,485,468,467,461,464,461,462,466,456,471,467,442,470,455,464,465,468,471,461,462,467,473,440,466,471,466,447,460,452,459,452,469,459,473,454,447,467,445,444,455,453],
+"Photosynthetic_efficiency_(Phi(II))": 0.397,
+"Relative_chlorophyll_content": 335.09, "ProjectID": "Fruit - Alive or
+Dead?",  "UserID": "gbathree", "Temperature":
+33.89,"Relative_Humidity": 32.43,"CO2_content": 1050}
+
+
+created_at
+updated_at 
+
+
+ProjectCollaborator
+belongs_to :user
+belongs_to  :project
+created_at
+created_at
+
+Comments || see thearit
+belongs_to :project
+belongs_to :user
+rate 
+created_at 
+status :
+
