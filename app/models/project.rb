@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   belongs_to :lead, :class_name => :user
   has_many :project_collaborators
   has_many :collaborators, through: :project_collaborators, :source => :user
-  has_many :project_data
+  has_many :data
    
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/placeholder.png"
   validates :name, :description, :location,:start_date,:end_date,:disclaimer, presence: true
@@ -19,8 +19,9 @@ class Project < ActiveRecord::Base
     end
   end
   
-  def chart_data
-      project_data.map do |data|
+  def chart_data(data=nil)
+      data ||= project_data
+      data.map do |data|
       { 
         id: data.id,
         phi2: data.photosynthetic_efficiency,
