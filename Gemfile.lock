@@ -117,8 +117,9 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-facebook (1.4.1)
-      omniauth-oauth2 (~> 1.1.0)
+    omniauth-google-oauth2 (0.2.1)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -207,7 +208,7 @@ DEPENDENCIES
   kaminari!
   less-rails-bootstrap
   omniauth
-  omniauth-facebook
+  omniauth-google-oauth2
   paperclip
   rails (= 3.2.14)
   rspec-rails (~> 2.0)

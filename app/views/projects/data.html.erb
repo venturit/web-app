@@ -56,7 +56,7 @@
 
 	
 	<div class="table-responsive">
-		<% if @project.data.blank? %>
+		<% if @project.project_data.blank? %>
 		<div class="alert alert-info">
 		 Stay tuned for project data.
 		</div>
@@ -67,7 +67,7 @@
 			<%= content_tag :div, "", id: "project_chart", data: {data: @project.chart_data} %>
 			</div>
 		</div>
-		<%- table_class = Datum -%>
+		<%- table_class = ProjectDatum -%>
 			<table class="table table-striped">
 			<thead>
 				<tr>
@@ -105,13 +105,10 @@
 					<th>
 						<%= model_class.human_attribute_name(:date_submitted) %>
 					</th>
-					<th>
-						View 
-					</th>
 				</tr>
 			</thead>
 			<tbody>
-			 <% @project.data.each do |data| %>
+			 <% @project.project_data.each do |data| %>
 				<tr>
 					<td>
 						<%=data.user.name%>
@@ -142,9 +139,6 @@
 					</td>
 					<td>
 						<%=data.created_at%>
-					</td>
-					<td>
-						<%=link_to "Only",project_datum_path(:project_id=>@project.id,:id=>data.id)%>
 					</td>
 				</tr>
 			<%end%>

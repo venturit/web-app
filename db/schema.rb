@@ -11,16 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905181718) do
+ActiveRecord::Schema.define(:version => 20130913022941) do
 
-  create_table "project_collaborators", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "project_data", :force => true do |t|
+  create_table "data", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.float    "photosynthetic_efficiency"
@@ -34,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20130905181718) do
     t.string   "subject"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "project_collaborators", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "projects", :force => true do |t|

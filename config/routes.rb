@@ -1,19 +1,32 @@
 Photosynq::Application.routes.draw do
   
 
-
-  devise_for :users do
-     post "/api/sign_in", :to => 'api/sessions#create'
+  devise_scope :user do
+     post "/api/v1/sign_in" => 'api/v1/sessions#create'
+     get "/api/v1/failure" => 'api/v1/sessions#failure'
   end
+  
+  devise_for :users 
+  
   resources :projects do
+    
     member do
       put 'join'
       delete 'leave'
       post 'contribute'
     end
+    resources :data
+    
   end
   
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects do
+        resources :data
+      end
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

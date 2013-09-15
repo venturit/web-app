@@ -34,29 +34,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => @project.name %></h1>
 </div>
-<dl class="dl-horizontal">
-  <dd><%= image_tag @project.image.url(:medium) %><dd><%= @project.description %></dd></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
-  <dd><%= @project.location %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
-  <dd><%= @project.latitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
-  <dd><%= @project.longitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
-  <dd><%= @project.start_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= @project.end_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
-  <dd><%= @project.start_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
-  <dd><%= @project.end_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:disclaimer) %>:</strong></dt>
-  <dd><%= @project.disclaimer %></dd>
-</dl>
-
 	
 	<div class="table-responsive">
-		<% if @project.data.blank? %>
+		<% if @data.blank? %>
 		<div class="alert alert-info">
 		 Stay tuned for project data.
 		</div>
@@ -64,7 +44,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Data Chart</div>
 		  	<div class="panel-body">
-			<%= content_tag :div, "", id: "project_chart", data: {data: @project.chart_data} %>
+			<%= content_tag :div, "", id: "project_chart", data: {data: @project.chart_data(@data)} %>
 			</div>
 		</div>
 		<%- table_class = Datum -%>
@@ -105,13 +85,10 @@
 					<th>
 						<%= model_class.human_attribute_name(:date_submitted) %>
 					</th>
-					<th>
-						View 
-					</th>
 				</tr>
 			</thead>
 			<tbody>
-			 <% @project.data.each do |data| %>
+			 <% @data.each do |data| %>
 				<tr>
 					<td>
 						<%=data.user.name%>
@@ -143,14 +120,10 @@
 					<td>
 						<%=data.created_at%>
 					</td>
-					<td>
-						<%=link_to "Only",project_datum_path(:project_id=>@project.id,:id=>data.id)%>
-					</td>
+				
 				</tr>
 			<%end%>
 			</tbody>
 			</table>
 	</div>
 	<%end%>
-
-

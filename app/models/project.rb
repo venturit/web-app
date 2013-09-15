@@ -19,9 +19,9 @@ class Project < ActiveRecord::Base
     end
   end
   
-  def chart_data(data=nil)
-      data ||= project_data
-      data.map do |data|
+  def chart_data(datum=nil)
+      datum ||= data
+      datum.map do |data|
       { 
         id: data.id,
         phi2: data.photosynthetic_efficiency,
