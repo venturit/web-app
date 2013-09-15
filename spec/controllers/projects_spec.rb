@@ -36,7 +36,7 @@ describe ProjectsController do
     describe "POST #contribute" do
         it "posts data to a contributing project successfully" do
           project = create(:project, :lead_id => @user.id,:is_open=>false)
-          project_data = {:co2_content=>"4.0",:created_at=>"2013-09-04T10:45:09Z",:photosynthetic_efficiency=>"24.0",:raw=>"24,421,124",:relative_chlorophyll_content=>"324.0",:relative_humidity=>"4.0",:subject=>"Apple",:temperature=>"44.0"}
+          project_data = {:co2_content=>"4.0",:created_at=>"2013-09-04T10:45:09Z",:photosynthetic_efficiency_phi2=>"24.0",:phi2_raw=>"24,421,124",:relative_chlorophyll_content=>"324.0",:relative_humidity=>"4.0",:tags=>"Apple",:temperature=>"44.0",:baseline=>"20.31",:co2_raw=>"12,32,51",:co2_slope=>"-.82",:co2_drop=>"450"}
           collaborator = create(:confirmed_user)
           collaborator.reset_authentication_token! 
           ProjectCollaborator.create(:project_id=>project.id,:user_id=>collaborator.id)
