@@ -32,6 +32,4 @@ describe ProjectsController do
         expect(collaborator.is_collaborating?(project)).to eq(false)
       end
     end
-    
-
 end
