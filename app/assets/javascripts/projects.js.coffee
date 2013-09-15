@@ -6,6 +6,6 @@ jQuery ->
     	element: 'project_chart'
     	data: $('#project_chart').data('data')
     	xkey: 'id'
-    	ykeys: ['phi2', 'temperature']
-    	labels: ['Phi2', 'Temperature']
+    	ykeys: ['phi2', 'fs']
+    	labels: ['Phi2', 'Fs']
 	})

@@ -37,8 +37,12 @@ red (int),
 blue (int),
 green (int),
 
-
-
-
+baseline
+photosynthetic_efficiency_phi2
+fs
+co2_content
+temperature
+relative_humidity
+light_intensity
 
 Copyright (c) 2013 Venturit Inc

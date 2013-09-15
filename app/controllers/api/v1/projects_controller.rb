@@ -2,7 +2,7 @@ class Api::V1::ProjectsController < ApplicationController
   load_and_authorize_resource 
   
   def index
-     render json: current_user.all_projects 
+     render json: Project.all 
   end
 
 end

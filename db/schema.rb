@@ -11,22 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913022941) do
+ActiveRecord::Schema.define(:version => 20130915181454) do
 
   create_table "data", :force => true do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.float    "photosynthetic_efficiency"
-    t.float    "relative_chlorophyll_content"
+    t.float    "photosynthetic_efficiency_phi2"
+    t.float    "fs"
     t.float    "temperature"
     t.float    "relative_humidity"
     t.float    "co2_content"
     t.float    "longitude"
     t.float    "latitude"
-    t.text     "raw"
+    t.text     "co2_raw"
     t.string   "subject"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "device_version"
+    t.integer  "led_low"
+    t.integer  "led_high"
+    t.integer  "ir_low"
+    t.integer  "ir_high"
+    t.integer  "baseline"
+    t.text     "phi2_raw"
+    t.float    "fm"
+    t.float    "co2_slope"
+    t.integer  "co2_start"
+    t.integer  "co2_end"
+    t.integer  "co2_drop"
+    t.integer  "light_intensity"
+    t.integer  "red"
+    t.integer  "blue"
+    t.integer  "green"
   end
 
   create_table "project_collaborators", :force => true do |t|

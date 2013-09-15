@@ -68,62 +68,62 @@
 			</div>
 		</div>
 		<%- table_class = Datum -%>
-			<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>
-						<%= model_class.human_attribute_name(:collaborator) %>
-					</th>
-					<th>
-						<%= model_class.human_attribute_name(:subject) %>
-					</th>
-					<th>
-						<%= model_class.human_attribute_name(:"phi2") %>
-					</th>
-					
-					<th>
-						<%= model_class.human_attribute_name(:relative_chlorophyll_content) %>
-					</th>
-					
-					<th>
-						<%= model_class.human_attribute_name(:temperature) %>
-					</th>
-					
-					<th>
-						<%= model_class.human_attribute_name(:relative_humidity) %>
-					</th>
-					
-					<th>
-						<%= model_class.human_attribute_name(:cO2_content) %>
-					</th>
-					<th>
-						<%= model_class.human_attribute_name(:longitude) %>
-					</th>
-					<th>
-						<%= model_class.human_attribute_name(:latitude) %>
-					</th>					
-					<th>
-						<%= model_class.human_attribute_name(:date_submitted) %>
-					</th>
-					<th>
-						View 
-					</th>
-				</tr>
-			</thead>
-			<tbody>
+		<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>
+					<%= model_class.human_attribute_name(:collaborator) %>
+				</th>
+				<th>
+					<%= model_class.human_attribute_name(:baseline) %>
+				</th>
+				<th>
+					<%= model_class.human_attribute_name(:"photosynthetic_efficiency_phi2") %>
+				</th>
+				
+				<th>
+					<%= model_class.human_attribute_name(:fs) %>
+				</th>
+				
+				<th>
+					<%= model_class.human_attribute_name(:co2_content) %>
+				</th>
+				
+				<th>
+					<%= model_class.human_attribute_name(:temperature) %>
+				</th>
+				
+				<th>
+					<%= model_class.human_attribute_name(:relative_humidity) %>
+				</th>
+				<th>
+					<%= model_class.human_attribute_name(:light_intensity) %>
+				</th>
+				<th>
+					<%= model_class.human_attribute_name(:contributted) %>
+				</th>
+				<th>
+					View
+				</th>
+			</tr>
+		</thead>
+		<tbody>
 			 <% @project.data.each do |data| %>
 				<tr>
 					<td>
 						<%=data.user.name%>
 					</td>
 					<td>
-						<%=data.subject%>
+						<%=data.baseline%>
 					</td>
 					<td>
-						<%=data.photosynthetic_efficiency%>
+						<%=data.photosynthetic_efficiency_phi2%>
 					</td>			
 					<td>
-						<%=data.relative_chlorophyll_content%>
+						<%=data.fs%>
+					</td>
+					<td>
+						<%=data.co2_content%>
 					</td>
 					<td>
 						<%=data.temperature%>
@@ -132,19 +132,13 @@
 						<%=data.relative_humidity%>
 					</td>
 					<td>
-						<%=data.co2_content%>
+						<%=data.light_intensity%>
 					</td>
 					<td>
-						<%=data.longitude%>
+						<%=time_ago_in_words(data.created_at) unless data.created_at.nil?%>
 					</td>
 					<td>
-						<%=data.latitude%>
-					</td>
-					<td>
-						<%=data.created_at%>
-					</td>
-					<td>
-						<%=link_to "Only",project_datum_path(:project_id=>@project.id,:id=>data.id)%>
+						<%=link_to "View",project_datum_path(:project_id=>data.project.id,:id=>data.id)%>
 					</td>
 				</tr>
 			<%end%>

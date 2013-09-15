@@ -55,14 +55,18 @@
 						<%= model_class.human_attribute_name(:collaborator) %>
 					</th>
 					<th>
-						<%= model_class.human_attribute_name(:subject) %>
+						<%= model_class.human_attribute_name(:baseline) %>
 					</th>
 					<th>
-						<%= model_class.human_attribute_name(:"phi2") %>
+						<%= model_class.human_attribute_name(:"photosynthetic_efficiency_phi2") %>
 					</th>
 					
 					<th>
-						<%= model_class.human_attribute_name(:relative_chlorophyll_content) %>
+						<%= model_class.human_attribute_name(:fs) %>
+					</th>
+					
+					<th>
+						<%= model_class.human_attribute_name(:co2_content) %>
 					</th>
 					
 					<th>
@@ -72,18 +76,11 @@
 					<th>
 						<%= model_class.human_attribute_name(:relative_humidity) %>
 					</th>
-					
 					<th>
-						<%= model_class.human_attribute_name(:cO2_content) %>
+						<%= model_class.human_attribute_name(:light_intensity) %>
 					</th>
 					<th>
-						<%= model_class.human_attribute_name(:longitude) %>
-					</th>
-					<th>
-						<%= model_class.human_attribute_name(:latitude) %>
-					</th>					
-					<th>
-						<%= model_class.human_attribute_name(:date_submitted) %>
+						<%= model_class.human_attribute_name(:contributted) %>
 					</th>
 				</tr>
 			</thead>
@@ -94,13 +91,16 @@
 						<%=data.user.name%>
 					</td>
 					<td>
-						<%=data.subject%>
+						<%=data.baseline%>
 					</td>
 					<td>
-						<%=data.photosynthetic_efficiency%>
+						<%=data.photosynthetic_efficiency_phi2%>
 					</td>			
 					<td>
-						<%=data.relative_chlorophyll_content%>
+						<%=data.fs%>
+					</td>
+					<td>
+						<%=data.co2_content%>
 					</td>
 					<td>
 						<%=data.temperature%>
@@ -109,18 +109,11 @@
 						<%=data.relative_humidity%>
 					</td>
 					<td>
-						<%=data.co2_content%>
+						<%=data.light_intensity%>
 					</td>
 					<td>
-						<%=data.longitude%>
+						<%=time_ago_in_words(data.created_at)%>
 					</td>
-					<td>
-						<%=data.latitude%>
-					</td>
-					<td>
-						<%=data.created_at%>
-					</td>
-				
 				</tr>
 			<%end%>
 			</tbody>

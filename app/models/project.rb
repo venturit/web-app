@@ -24,8 +24,8 @@ class Project < ActiveRecord::Base
       datum.map do |data|
       { 
         id: data.id,
-        phi2: data.photosynthetic_efficiency,
-        temperature: data.temperature
+        phi2: data.photosynthetic_efficiency_phi2,
+        fs: data.fs
         }
     end
   end
