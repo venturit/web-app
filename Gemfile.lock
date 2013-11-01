@@ -155,6 +155,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    recaptcha (0.3.5)
     ref (1.0.5)
     rspec-core (2.14.5)
     rspec-expectations (2.14.2)
@@ -211,6 +212,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paperclip
   rails (= 3.2.14)
+  recaptcha
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
   sqlite3

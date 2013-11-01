@@ -43,4 +43,4 @@ group :development, :test do
   gem 'factory_girl_rails', :git=>'https://github.com/thoughtbot/factory_girl_rails.git'
   gem 'database_cleaner'
 end
-
+gem 'recaptcha', :require => 'recaptcha/rails'

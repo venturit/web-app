@@ -6,7 +6,7 @@ Photosynq::Application.routes.draw do
      get "/api/v1/failure" => 'api/v1/sessions#failure'
   end
   
-  devise_for :users 
+  devise_for :users, :controllers => {:registrations => "registrations"}
   
   resources :projects do
     
