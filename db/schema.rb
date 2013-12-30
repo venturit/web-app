@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130915181454) do
+ActiveRecord::Schema.define(:version => 20131230135957) do
 
   create_table "data", :force => true do |t|
     t.integer  "user_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20130915181454) do
     t.float    "longitude"
     t.float    "latitude"
     t.text     "co2_raw"
-    t.string   "subject"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
     t.integer  "device_version"
@@ -33,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20130915181454) do
     t.integer  "ir_low"
     t.integer  "ir_high"
     t.integer  "baseline"
-    t.text     "phi2_raw"
+    t.text     "data_raw"
     t.float    "fm"
     t.float    "co2_slope"
     t.integer  "co2_start"
