@@ -10,7 +10,7 @@
 		 <% @projects.each do |project| %>
 	        <div class="col-lg-4">
 			  <img class="featurette-image img-responsive" src="<%=  project.image.url(:medium) %>" data-src="holder.js/140x140" alt="Generic placeholder image">
-	          <h2><%= project.name %></h2>
+	          <h2><%= project.name %> <%= project.beta? ? '- [Beta]' : '' %></h2>
 	          <p><%= project.description %></p>
 	          <p><a class="btn btn-default" href="<%=project_path(project)%>">View details &raquo;</a></p>
 	        </div>

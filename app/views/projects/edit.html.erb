@@ -1,5 +1,6 @@
 <%- model_class = Project -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+	<!-- ToDo: Remove Beta flag after beta testing is done -->
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %> <%= @project.beta? ? '- [Beta]' : '' %></h1>
 </div>
 <%= render :partial => 'form' %>

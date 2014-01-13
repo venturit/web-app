@@ -32,7 +32,8 @@
  <% end %>
 </div>
 <div class="page-header">
-  <h1><%=t '.title', :default => @project.name %></h1>
+	<!-- ToDo: Remove Beta flag after beta testing is done -->
+  <h1><%=t '.title', :default => @project.name %> <%= @project.beta? ? '- [Beta]' : '' %></h1>
 </div>
 <dl class="dl-horizontal">
   <dd><%= image_tag @project.image.url(:medium) %><dd><%= @project.description %></dd></dd>
@@ -42,16 +43,18 @@
   <dd><%= @project.latitude %></dd>
   <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
   <dd><%= @project.longitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
-  <dd><%= @project.start_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= @project.end_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
-  <dd><%= @project.start_time %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
-  <dd><%= @project.end_time %></dd>
+  <!-- <dt><strong><%#= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dd><%#= @project.start_date %></dd>
+  <dt><strong><%#= model_class.human_attribute_name(:end_date) %>:</strong></dt>
+  <dd><%#= @project.end_date %></dd>
+  <dt><strong><%#= model_class.human_attribute_name(:start_time) %>:</strong></dt>
+  <dd><%#= @project.start_time %></dd>
+  <dt><strong><%#= model_class.human_attribute_name(:end_time) %>:</strong></dt>
+  <dd><%#= @project.end_time %></dd> -->
   <dt><strong><%= model_class.human_attribute_name(:disclaimer) %>:</strong></dt>
   <dd><%= @project.disclaimer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:directions_to_collaborators) %>:</strong></dt>
+  <dd><%= @project.directions_to_collaborators %></dd>
 </dl>
 
 	

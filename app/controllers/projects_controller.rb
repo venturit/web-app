@@ -18,6 +18,9 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    3.times do
+      @project.custom_fields.build
+    end
     flash.keep
     respond_with(@project)
   end
@@ -25,6 +28,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    if @project.custom_fields.blank?
+      3.times do
+        @project.custom_fields.build
+      end
+    end
     flash.keep
     respond_with(@project)
   end

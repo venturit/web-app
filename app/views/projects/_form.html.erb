@@ -1,44 +1,58 @@
 <%= semantic_form_for @project, :html=>{:role=>'form',:class=>"form"} do |f| %>
-
-<%= f.inputs do %>
-<div class="form-group">
-    <%= f.input :name,:input_html=>{:class=>'form-control',:placeholder=>"Enter your project name"} %>
-</div>
-<div class="form-group"> 
-   <%= f.input :description,:input_html=>{:class=>'form-control',:placeholder=>"Describe your project",:rows=>"4"} %>
-</div>	
-<div class="form-group">
-    <%= f.input :location,:hint=>"Example: 325 Grand River Ave, East Lansing, MI 48864, USA", :input_html=>{:class=>'form-control',:placeholder=>"Enter project location"} %>
-</div>	
-<div class="form-group">
-	<%= f.input :latitude,:input_html => { :readonly => true, :class=>'form-control'} %>
-</div>	
-<div class="form-group">
-	<%= f.input :longitude,:input_html => { :readonly => true, :class=>'form-control' } %>
-</div>	
-<div class="form-group">
-	<%= image_tag @project.image.url(:thumb),:width=>"100px" %>
-    <%= f.input :image, :as => :file %>
-</div>	
-<div class="form-group">
-	<%= f.input :start_date,:as=>:date_select,:input_html=>{:class=>'form-control'} %> 
-</div>	
-<div class="form-group">
-	<%= f.input :end_date,:as=>:date_select,:input_html=>{:class=>'form-control'}  %> 
-</div>	
-<div class="form-group">
-	<%= f.input :start_time, :as=>:time_select,:input_html=>{:class=>'form-control'} %> 
-</div>	
-<div class="form-group">
-	<%= f.input :end_time, :as=>:time_select,:input_html=>{:class=>'form-control'} %>
-</div>	
-<div class="form-group">
-	<%= f.input :is_open,:input_html=>{:class=>'form-control'} %>
-</div>		
-<div class="form-group">
-	<%= f.input :disclaimer,:input_html=>{:class=>'form-control',:placeholder=>"Enter your disclaimer",:rows=>"3"} %>
-</div>	
- <% end %>
+	<%= f.inputs do %>
+		<div class="form-group">
+		   <%= f.input :name,:input_html=>{:class=>'form-control',:placeholder=>"Enter your project name"} %>
+		</div>
+		<div class="form-group"> 
+		   <%= f.input :description,:input_html=>{:class=>'form-control',:placeholder=>"Describe your project",:rows=>"4"} %>
+		</div>	
+		<div class="form-group">
+		   <%= f.input :location,:hint=>"Example: 325 Grand River Ave, East Lansing, MI 48864, USA", :input_html=>{:class=>'form-control',:placeholder=>"Enter project location"} %>
+		</div>	
+		<div class="form-group">
+			<%= f.input :latitude,:input_html => { :readonly => true, :class=>'form-control'} %>
+		</div>	
+		<div class="form-group">
+			<%= f.input :longitude,:input_html => { :readonly => true, :class=>'form-control' } %>
+		</div>	
+		<div class="form-group">
+			<%= image_tag @project.image.url(:thumb),:width=>"100px" %>
+		  <%= f.input :image, :as => :file %>
+		</div>
+		<!--<div class="form-group">
+			<%#= f.input :start_date,:as=>:date_select,:input_html=>{:class=>'form-control'} %> 
+		</div>	
+		<div class="form-group">
+			<%#= f.input :end_date,:as=>:date_select,:input_html=>{:class=>'form-control'}  %> 
+		</div>	
+		<div class="form-group">
+			<%#= f.input :start_time, :as=>:time_select,:input_html=>{:class=>'form-control'} %> 
+		</div>	
+		<div class="form-group">
+			<%#= f.input :end_time, :as=>:time_select,:input_html=>{:class=>'form-control'} %>
+		</div>-->	
+		<div class="form-group">
+			<%= f.input :is_open,:input_html=>{:class=>'form-control'} %>
+		</div>		
+		<div class="form-group">
+			<%= f.input :disclaimer,:input_html=>{:class=>'form-control',:placeholder=>"Enter your disclaimer",:rows=>"3"} %>
+		</div>
+		<div class="form-group">
+			<%= f.input :directions_to_collaborators, :input_html=>{:class=>'form-control', :rows=>5} %>
+		</div>
+		<div class="form-group">
+			<% i = 0 %>
+			<%= f.semantic_fields_for :custom_fields do |c, index| %>
+			<% i += 1 %>
+			<fieldset class="">
+				<legend>Custom Field: <%= i %></legend>
+				<%= c.input :label,:input_html=>{:class=>'form-control'} %>
+				<%= c.input :value,:input_html=>{:class=>'form-control'} %>
+			</fieldset>
+			<% end %>
+		</div>
+	</div>
+	<% end %>
   <%= f.actions do %>
     <%= f.action :submit, :as => :button, :button_html => {:class=>"btn btn-primary"} %>
     <%= f.action :cancel, :as => :link %>
