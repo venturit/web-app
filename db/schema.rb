@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230135957) do
+ActiveRecord::Schema.define(:version => 20140113181642) do
+
+  create_table "custom_fields", :force => true do |t|
+    t.string   "value"
+    t.string   "label"
+    t.string   "options"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "data", :force => true do |t|
     t.integer  "user_id"
@@ -66,12 +75,14 @@ ActiveRecord::Schema.define(:version => 20131230135957) do
     t.time     "start_time"
     t.time     "end_time"
     t.boolean  "is_open"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "directions_to_collaborators"
+    t.boolean  "beta"
   end
 
   create_table "users", :force => true do |t|
