@@ -11,11 +11,13 @@ class Project < ActiveRecord::Base
   geocoded_by :full_street_address  
   after_validation :geocode
   # ToDo ==
-  # This after create method will be removed after completing the beta testing.
-  after_create :set_beta_flag
+  # This before create method will be removed after completing the beta testing.
+  before_create :set_beta_flag
   attr_accessible :description, :disclaimer, :downloads, :name, :views, :lead_id, :location,:latitude,:longitude,:start_date,:end_date,:image,:start_time,:end_time,:is_open,:directions_to_collaborators,:custom_fields_attributes, :beta
   
   accepts_nested_attributes_for :custom_fields
+  
+  has_friendly_id :name, :use_slug => true
   
   def full_street_address 
     if location.blank?
@@ -38,7 +40,6 @@ class Project < ActiveRecord::Base
   
   def set_beta_flag
     self.beta = true
-    self.save
   end
   
 end

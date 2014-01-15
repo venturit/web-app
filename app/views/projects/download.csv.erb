@@ -1,0 +1,5 @@
+<%- model_class = Project -%>
+<%= model_class.human_attribute_name(:collaborator) %>,<%= model_class.human_attribute_name(:baseline) %>,<%= model_class.human_attribute_name(:"photosynthetic_efficiency_phi2") %>,<%= model_class.human_attribute_name(:fs) %>,<%= model_class.human_attribute_name(:co2_content) %>,<%= model_class.human_attribute_name(:temperature) %>,<%= model_class.human_attribute_name(:relative_humidity) %>,<%= model_class.human_attribute_name(:light_intensity) %>,<%= model_class.human_attribute_name(:contributted) %>
+<% @project.data.each do |data| %>
+	<%=data.user.name%>,<%=data.baseline%>,<%=data.photosynthetic_efficiency_phi2%>,<%=data.fs%>,<%=data.co2_content%>,<%=data.temperature%>,<%=data.relative_humidity%>,<%=data.light_intensity%>,<%=time_ago_in_words(data.created_at) unless data.created_at.nil?%>
+<%end%>

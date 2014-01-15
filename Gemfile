@@ -38,6 +38,8 @@ gem 'formtastic'
 
 gem 'kaminari', :git => 'https://github.com/venturit/kaminari'
 
+gem "friendly_id", "~> 3.3.0"
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails', :git=>'https://github.com/thoughtbot/factory_girl_rails.git'

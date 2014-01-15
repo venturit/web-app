@@ -14,6 +14,7 @@ Photosynq::Application.routes.draw do
       put 'join'
       delete 'leave'
       post 'contribute'
+      get 'download'
     end
     resources :data
     

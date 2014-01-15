@@ -98,4 +98,15 @@ class ProjectsController < ApplicationController
     flash[:notice] = "Project was successfully delete." if  @project.destroy
     respond_with(@project)
   end
+  
+  def download
+    @project = Project.find(params[:id])
+    respond_to do |format|
+      format.csv do
+        response.headers['Content-Type'] = 'text/csv'
+        response.headers['Content-Disposition'] = "attachment; filename=#{@project.friendly_id}.csv"
+        # render :template => "/projects/download.csv.erb"
+      end
+    end
+  end
 end
