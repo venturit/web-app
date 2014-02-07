@@ -14,7 +14,6 @@
 
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
 
@@ -54,18 +53,28 @@
     <% if current_page?(projects_url)%>
     <!-- Main jumbotron for a primary marketing message or call to action 	-->
      <div class="jumbotron">
-      <div class="container">
-        <h2>Welcome to Photosynq!</h2>
-        <p>Our goal is to create a low cost, hand-held measurement device which researchers, educators, and citizen scientists can use to build a global database of plant health.</p>
-        <p></p><%= link_to t('start_a_new_project'),
-            new_project_path,
-            :class => 'btn btn-success' %>
-        <a class="btn btn-primary" href="http://photosynq.org/" target="_blank">Learn more &raquo;</a>
-        Join a project <i class="fa fa-arrow-down"></i>
-        </p>
-      </div>
-
-    </div>
+		<div class="row">
+			 <div class="col-md-8">
+				<h1>Welcome to PhotosynQ!</h1>
+				<p>Our goal is to create a low cost, hand-held measurement device which researchers, educators, and citizen scientists can use to build a global database of plant health.</p>
+				<p></p><%= link_to t('start_a_new_project'),
+					new_project_path,
+					:class => 'btn btn-success' %>
+				<a class="btn btn-primary" href="http://photosynq.org/" target="_blank">Learn more &raquo;</a>
+				Join a project <span class="glyphicon glyphicon-chevron-down"></span>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<div id="carouselWrapper">
+					<div id="carousel">
+						<div class="items">
+							<div class="item">
+							<img class="img-responsive" src="http://upload.wikimedia.org/wikipedia/commons/f/f4/Leaf_1_web.jpg"></img>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
 	<%end%>
     <div class="container">
 			
