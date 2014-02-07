@@ -57,7 +57,13 @@
       <div class="container">
         <h1>Welcome to Photosynq!</h1>
         <p>Our goal is to create a low cost, hand-held measurement device which researchers, educators, and citizen scientists can use to build a global database of plant health.</p>
-        <p><a class="btn btn-primary" href="http://photosynq.org/" target="_blank">Learn more &raquo;</a></p>
+        <p></p><%= link_to t('start_a_new_project'),
+            new_project_path,
+            :class => 'btn btn-success' %>
+            
+        <a class="btn btn-primary" href="http://photosynq.org/" target="_blank">Learn more &raquo;</a>
+        Join a project
+        </p>
       </div>
 
     </div>
