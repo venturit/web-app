@@ -1,0 +1,107 @@
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create New Macro</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="macro_name">Macro Name</label>  
+  <div class="col-md-5">
+  <input id="macro_name" name="macro_name" placeholder="name of your macro here" class="form-control input-md" required="" type="text">
+  <span class="help-block">must be unique</span>  
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description" name="description">Add description of macro and it's outputs</textarea>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="suggested_macro">Graph by default on x-axis</label>
+  <div class="col-md-4">
+    <select id="suggested_macro" name="suggested_macro" class="form-control">
+      <option value="1">list of outputs from macro plus standard options from Sebastian's analysis tool</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="suggested_macro">Graph by default on y-axis</label>
+  <div class="col-md-4">
+    <select id="suggested_macro" name="suggested_macro" class="form-control">
+      <option value="1">list of outputs from macro plus standard options from Sebastian's analysis tool</option>
+    </select>
+  </div>
+</div>
+
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="js_code">Javascript code</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="js_code" name="js_code">default text	var output = [];
+	var values = json[j].data_raw
+
+	if(values){
+		
+		## Here comes your data evaluation
+		##..
+		
+		GraphType (required) --&gt; line, point, pointline (Sets graphing for raw data view)
+		Macro (required) --&gt; (String) Macroname
+		HTML (required) --&gt; (String) String that gives explanation for calculated value. Can be empty.
+		Further values (optional) --&gt; (float, int) won't be displayed in raw data view but will be available for data comparison view
+		
+		## Math functions available
+		MathSUM(values); --&gt; calculates sum from array (e.g. [1,2,3.5])
+		MathMEAN(values); --&gt; calculates mean from array (e.g. [1,2,3.5])
+		MathROUND(value, digets) --&gt; rounds float to a certain number of digets (e.g 1.26377827 -&gt; 1.264)
+		MathSTDEV(values);  --&gt; calculates standard deviation of population from array ([1,2,3.5])
+		MathSTDEVS(values);  --&gt; calculates standard deviation of sample from array ([1,2,3.5])
+		MathSTDERR(values);  --&gt; calculates standard error from array ([1,2,3.5])
+		MathLINREG(x,y); --&gt; calculates linear regression from array (x = [1,2,3.5], y= [1,2,3.5])		
+		
+		
+		// Example output
+		output = {"Calculation": val, "Macro": 'Macroname', "HTML": "value "+val+"", "GraphType": 'line'};
+	}
+	
+	return output;</textarea>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="json">JSON data</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="json" name="json">Insert JSON string here to test macro</textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Test Macro</label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Test</button>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="save"></label>
+  <div class="col-md-8">
+    <button id="save" name="save" class="btn btn-success">Save Macro</button>
+    <button id="test" name="test" class="btn btn-danger">Cancel</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+

@@ -1,0 +1,245 @@
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Create New Protocol</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="protocol_name_hr">Protocol Name</label>  
+  <div class="col-md-4">
+  <input id="protocol_name_hr" name="protocol_name_hr" placeholder="" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="protocol_description">Quick Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="protocol_description" name="protocol_description">In NO MORE THAN 2 sentences explain what this protocol tells the user</textarea>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="used_for">Used for</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="used_for" name="used_for">Briefly explain situations in which a user may want to use this protocol</textarea>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="measurement_type">Measurement Type</label>
+  <div class="col-md-4">
+    <select id="measurement_type" name="measurement_type" class="form-control">
+      <option value="1">Absorbance</option>
+      <option value="2">Reflectance</option>
+      <option value="3">Fluorescence</option>
+      <option value="4">Other</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="protocol_name">Protocol name in Arduino Code</label>  
+  <div class="col-md-4">
+  <input id="protocol_name" name="protocol_name" placeholder="" class="form-control input-md" required="" type="text">
+  <span class="help-block">no spaces or unusual characters.  This MUST match the name in the arduino file</span>  
+  </div>
+</div>
+
+<!-- Appended Input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="measuring_lights_1">Measurement lights (if any)</label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <input id="measuring_lights_1" name="measuring_lights_1" class="form-control" placeholder="eg 650" type="text">
+      <span class="input-group-addon">nm</span>
+    </div>
+    
+  </div>
+</div>
+<!-- Appended Input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="measuring_lights_2"></label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <input id="measuring_lights_2" name="measuring_lights_2" class="form-control" placeholder="eg 505" type="text">
+      <span class="input-group-addon">nm</span>
+    </div>
+    
+  </div>
+</div>
+<!-- Appended Input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="measurement_lights_3"></label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <input id="measurement_lights_3" name="measurement_lights_3" class="form-control" placeholder="eg 850" type="text">
+      <span class="input-group-addon">nm</span>
+    </div>
+    
+  </div>
+</div>
+<!-- Appended Input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="measurement_lights_4"></label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <input id="measurement_lights_4" name="measurement_lights_4" class="form-control" placeholder="eg 450" type="text">
+      <span class="input-group-addon">nm</span>
+    </div>
+    <p class="help-block">leave blank if no measurement light is used</p>
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="protocol_number">Protocol number</label>  
+  <div class="col-md-4">
+  <input id="protocol_number" name="protocol_number" placeholder="" class="form-control input-md" required="" type="text">
+  <span class="help-block">auto-generate from existing protocol database</span>  
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="easy_measure">How easy is it to take the measurement?</label>
+  <div class="col-md-4">
+    <select id="easy_measure" name="easy_measure" class="form-control">
+      <option value="1">Easy</option>
+      <option value="2">Moderate</option>
+      <option value="3">Hard</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="easy_intepret">How easy is it to interpret the measurement?</label>
+  <div class="col-md-4">
+    <select id="easy_intepret" name="easy_intepret" class="form-control">
+      <option value="1">Easy</option>
+      <option value="2">Medium</option>
+      <option value="3">Hard</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="suggested_macro">Suggested Macro</label>
+  <div class="col-md-4">
+    <select id="suggested_macro" name="suggested_macro" class="form-control">
+      <option value="1">import list of available macros</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_1">Variables outputed from MultispeQ (if any) - must match name exactly</label>  
+  <div class="col-md-4">
+  <input id="output_1" name="output_1" placeholder="eg Phi2" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_description_1"></label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="output_description_1" name="output_description_1">user-friendly, brief description of outputted value</textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_2"></label>  
+  <div class="col-md-4">
+  <input id="output_2" name="output_2" placeholder="eg Fs" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_description_2"></label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="output_description_2" name="output_description_2">user-friendly, brief description of outputted value</textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_3"></label>  
+  <div class="col-md-4">
+  <input id="output_3" name="output_3" placeholder="eg ECSt" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_description_3"></label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="output_description_3" name="output_description_3">user-friendly, brief description of outputted value</textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_4"></label>  
+  <div class="col-md-4">
+  <input id="output_4" name="output_4" placeholder="eg vH+" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_description_4"></label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="output_description_4" name="output_description_4">user-friendly, brief description of outputted value</textarea>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_5"></label>  
+  <div class="col-md-4">
+  <input id="output_5" name="output_5" placeholder="eg tau" class="form-control input-md" type="text">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="output_description_5"></label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="output_description_5" name="output_description_5">user-friendly, brief description of outputted value</textarea>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="protocol_description">Full Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="protocol_description" name="protocol_description">Everything plus the kitchen sink that you didn't already describe</textarea>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="button1id"></label>
+  <div class="col-md-8">
+    <button id="button1id" name="button1id" class="btn btn-primary">Save</button>
+    <button id="button2id" name="button2id" class="btn btn-danger">Cancel</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
