@@ -7,7 +7,7 @@ describe Api::V1::SessionsController do
   end
 
   describe "POST #sign_in" do
-     it "it should authenticate a confirmed user" do
+     it "should authenticate a confirmed user" do
        setup_controller_for_warden
        request.env["devise.mapping"] = Devise.mappings[:user]
        post "create", {:user => {:email=>@user.email,:password=>@user.password},:format=>:json}
@@ -25,5 +25,16 @@ describe Api::V1::SessionsController do
      end
      
    end
-  
+
+  describe "DELETE #sign_out" do
+     it "should sign out a logged in user" do
+       setup_controller_for_warden
+       request.env["devise.mapping"] = Devise.mappings[:user]
+       @user.reset_authentication_token!
+       authentication_token = @user.authentication_token
+       delete "destroy", {:auth_token=>@user.authentication_token,:format=>:json}
+       @user.reload
+       @user.authentication_token.should_not == authentication_token
+     end
+  end
 end

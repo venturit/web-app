@@ -3,6 +3,7 @@ Photosynq::Application.routes.draw do
 
   devise_scope :user do
      post "/api/v1/sign_in" => 'api/v1/sessions#create'
+     delete "/api/v1/sign_out" => 'api/v1/sessions#destroy'
      get "/api/v1/failure" => 'api/v1/sessions#failure'
   end
   
