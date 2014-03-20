@@ -1,5 +1,4 @@
 class Api::V1::SessionsController < Devise::SessionsController
-   #load_resource :only=> :destroy
     respond_to :json
     after_filter :options
       def create

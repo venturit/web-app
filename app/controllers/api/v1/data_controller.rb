@@ -1,6 +1,6 @@
 class Api::V1::DataController < ApplicationController
   load_and_authorize_resource
-  
+  after_filter :options 
   def create
     @project = Project.find(params[:project_id]) 
     # TODO: allow only contributions from contributors, for now leaving project contributions open
@@ -13,6 +13,10 @@ class Api::V1::DataController < ApplicationController
          render json: {notice: "You have successfully contributed the data!",:status =>:success,:id=>@project.data.last.id}, status: :success
       end
     end
+  end
+
+  def options
+   headers['Access-Control-Allow-Origin'] = "*"
   end
   
 end
