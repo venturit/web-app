@@ -46,3 +46,5 @@ group :development, :test do
   gem 'database_cleaner'
 end
 gem 'recaptcha', :require => 'recaptcha/rails'
+
+gem 'rack-cors'
